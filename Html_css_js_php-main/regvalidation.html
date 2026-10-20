@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome To Login Form</title>
+    <script>
+        function login() {
+            var uname = document.getElementById("email").value.trim();
+            var pwd = document.getElementById("pwd1").value.trim();
+            var filter = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+            if (uname === "") {
+                alert("Please enter user name.");
+            } 
+            else if (pwd === "") {
+                alert("Enter the password.");
+            } 
+            else if (!filter.test(uname)) {
+                alert("Enter valid email id.");
+            } 
+            else if (pwd.length !== 6) {
+                alert("Password must be exactly 6 characters long.");
+            } 
+            else {
+                alert("Login Success!");
+            }
+        }
+
+        function clearFunc() {
+            document.getElementById("email").value = "";
+            document.getElementById("pwd1").value = "";
+        }
+    </script>
+</head>
+
+<body>
+    <div id="main">
+        <div class="h-tag">
+            <h2 align="center">Welcome To My Account Login</h2>
+        </div>
+
+        <div class="login">
+            <table cellspacing="20" align="center" cellpadding="8" border="0">
+                <tr>
+                    <td>Enter User Name:</td>
+                    <td><input type="text" placeholder="Enter user name here" id="email" class="tb" /></td>
+                </tr>
+                <tr>
+                    <td>Enter Password:</td>
+                    <!-- use 'password' type to hide characters -->
+                    <td><input type="password" placeholder="Enter password here" id="pwd1" class="tb" /></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="button" value="Reset" onClick="clearFunc()" class="btn" />
+                        <input type="button" value="Login" onClick="login()" class="btn" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+<style>
+    /* Basic page setup */
+body {
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(135deg, #6dd5fa, #2980b9);
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Main container */
+#main {
+    background-color: #ffffff;
+    width: 400px;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Heading */
+.h-tag h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+/* Input boxes */
+.tb {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.tb:focus {
+    border-color: #2980b9;
+    box-shadow: 0 0 5px rgba(41, 128, 185, 0.5);
+}
+
+/* Buttons */
+.btn {
+    background-color: #2980b9;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+    margin-right: 8px;
+    transition: background 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #1f6692;
+}
+
+/* Table layout */
+table {
+    width: 100%;
+}
+
+td {
+    color: #333;
+    font-size: 15px;
+}
+
+</style>
+</html>

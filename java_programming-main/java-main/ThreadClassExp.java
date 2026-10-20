@@ -1,0 +1,35 @@
+// To define two classes , one for generating multiplication table of 5 and other for displaying first N prime numbers. Implement using threads.
+
+class Multiple5 extends Thread {
+    public void run() {
+        int num = 5;
+        for (int i = 1; i <= 10; i++)
+        System.out.printf("Thread1-Table5 :%d * %d = %d\n",num, i, num * i);
+    }
+}
+class PrimeN extends Thread {
+    public void run() {
+        int ct = 0, n = 0, i = 1, j = 1;
+        while (n < 5) {
+            j = 1;ct = 0;
+            while (j <= i) {
+                if (i % j == 0)
+                ct++;
+                j++;
+            }
+            if (ct == 2) {
+                System.out.printf("Thread2-PrimeN :%d\n", i);
+                n++;
+            }
+            i++;
+        }
+    }
+}
+public class ThreadClassExp {
+    public static void main(String[] args) {
+        Multiple5 m5 = new Multiple5();
+        PrimeN pn = new PrimeN();
+        pn.start();
+        m5.start();
+    }
+}
